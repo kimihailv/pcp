@@ -1,0 +1,22 @@
+{'accuracy': 0.9355723596814833, 'class_avg_accuracy': 0.8563202760061647, 'class_avg_iou': 0.8028777328552099, 'instance_avg_iou': 0.8363496161868209}
+
+eval mIoU of Airplane       0.831285
+eval mIoU of Bag            0.828668
+eval mIoU of Cap            0.800046
+eval mIoU of Car            0.784457
+eval mIoU of Chair          0.896994
+eval mIoU of Earphone       0.643771
+eval mIoU of Guitar         0.919264
+eval mIoU of Knife          0.857947
+eval mIoU of Lamp           0.799823
+eval mIoU of Laptop         0.950251
+eval mIoU of Motorbike      0.674045
+eval mIoU of Mug            0.919397
+eval mIoU of Pistol         0.826023
+eval mIoU of Rocket         0.580023
+eval mIoU of Skateboard     0.735072
+eval mIoU of Table          0.798978
+Accuracy is: 0.93557
+Class avg accuracy is: 0.85632
+Class avg mIOU is: 0.80288
+Instance avg mIOU is: 0.83635

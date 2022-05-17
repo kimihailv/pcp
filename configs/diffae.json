@@ -1,0 +1,15 @@
+{
+  "save_dir": "pcp/weights",
+  "save_every": 100,
+  "validate_every": 100,
+  "device": "cuda:0",
+  "n_epochs": 500,
+  "dataset_path": "datasets/hdfs/shapenet.h5",
+  "batch_size": {
+    "train": 25,
+    "val": 32
+  },
+  "lr": 5e-4,
+  "wandb_api_key": "250dbbcea2aeb58b6f317f9d7505802657d9a207",
+  "run_name": "DiffAE"
+}

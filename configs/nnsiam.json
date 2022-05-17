@@ -1,0 +1,52 @@
+ {
+  "save_dir": "pcp/weights",
+  "save_every": 25,
+  "validate_every": 1000,
+  "eval_clf_every": 1,
+  "eval_clf_kwargs": {
+    "device": "cuda:0",
+    "dataset_type": "modelnet",
+    "dataset_path": "datasets/hdfs/modelnet2k.h5",
+    "batch_size": 16
+  },
+  "n_epochs": 100,
+  "dataset": {
+    "train": {
+      "hdf5_path": "datasets/hdfs/shapenet.h5",
+      "splits": ["test"],
+      "categories": ["all"],
+      "points_labels_path": "datasets/shapenet_labels_global.h5",
+      "point_labels_level": "global"
+    },
+    "val": {
+      "hdf5_path": "datasets/hdfs/shapenet.h5",
+      "splits": ["val"],
+      "categories": ["all"],
+      "points_labels_path": "datasets/shapenet_labels_global.h5",
+      "point_labels_level": "global"
+    }
+  },
+  "batch_size": {
+    "train": 6,
+    "val": 16
+  },
+  "framework": {
+    "type": "nnsimsiam",
+    "kwargs": {
+      "strategy": "nn_1_1",
+      "replace_rate": 0.7,
+      "size_per_cls": 1000,
+      "n_classes": 50,
+      "embedding_dim": 128,
+      "negatives_per_cls": -1,
+      "init_data_path": null
+    }
+  },
+  "backbone_type": "clf",
+  "sync_bn": true,
+  "lr": 0.0005,
+  "weight_decay": 1e-5,
+  "warmup_epochs": 4,
+  "wandb_api_key": "250dbbcea2aeb58b6f317f9d7505802657d9a207",
+  "run_name": "Contrastive | All Levels | ShapeNet"
+}

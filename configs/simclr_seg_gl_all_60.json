@@ -1,0 +1,53 @@
+{
+  "save_dir": "pcp/weights",
+  "save_every": 50,
+  "validate_every": 1000,
+  "eval_clf_every": 10,
+  "eval_clf_kwargs": {
+    "device": "cuda:0",
+    "dataset_type": "modelnet",
+    "dataset_path": "datasets/hdfs/modelnet2k.h5",
+    "batch_size": 32
+  },
+  "n_epochs": 150,
+  "dataset": {
+    "train": {
+      "hdf5_path": "datasets/hdfs/shapenet.h5",
+      "splits": ["train"],
+      "categories": ["all"],
+      "points_labels_path": "datasets/shapenet_labels_global.h5",
+      "point_labels_level": "global",
+      "n_classes": 60
+    },
+    "val": {
+      "hdf5_path": "datasets/hdfs/shapenet.h5",
+      "splits": ["val"],
+      "categories": ["all"],
+      "points_labels_path": "datasets/shapenet_labels_global.h5",
+      "point_labels_level": "global",
+      "n_classes": 60
+    }
+  },
+  "batch_size": {
+    "train": 45,
+    "val": 16
+  },
+  "framework": {
+    "type": "simclr",
+    "kwargs": {
+      "locality_levels": ["Instance","Patch", "Points"],
+      "loss_locality_levels": ["Instance", "Patch", "PointsPatch", "InstancePatch"],
+      "temperature": 0.07,
+      "sup_loss": true,
+      "sample_frac": 0.05,
+      "max_samples": 10
+    }
+  },
+  "backbone_type": "pointnet",
+  "sync_bn": true,
+  "lr": 0.001,
+  "weight_decay": 1e-5,
+  "warmup_epochs": 4,
+  "wandb_api_key": "250dbbcea2aeb58b6f317f9d7505802657d9a207",
+  "run_name": "Contrastive (global | seg) | All | ShapeNet | classes=60"
+}

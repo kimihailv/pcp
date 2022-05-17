@@ -1,0 +1,49 @@
+{
+  "save_dir": "pcp/weights",
+  "save_every": 25,
+  "validate_every": 1000,
+  "eval_clf_every": 10,
+  "eval_clf_kwargs": {
+    "device": "cuda:0",
+    "dataset_type": "modelnet",
+    "dataset_path": "datasets/hdfs/modelnet2k.h5",
+    "batch_size": 16
+  },
+  "n_epochs": 75,
+  "dataset": {
+    "train": {
+      "hdf5_path": "datasets/hdfs/shapenet.h5",
+      "splits": ["train"],
+      "categories": ["all"],
+      "points_labels_path": "datasets/shapenet_labels_global.h5",
+      "point_labels_level": "local",
+      "n_classes": 50
+    },
+    "val": {
+      "hdf5_path": "datasets/hdfs/shapenet.h5",
+      "splits": ["val"],
+      "categories": ["all"],
+      "points_labels_path": "datasets/shapenet_labels_global.h5",
+      "point_labels_level": "local",
+      "n_classes": 50
+    }
+  },
+  "batch_size": {
+    "train": 40,
+    "val": 64
+  },
+  "framework": {
+    "type": "byol",
+    "kwargs": {
+      "n_steps": 0,
+      "task": "local2global"
+    }
+  },
+  "backbone_type": "pointnet",
+  "sync_bn": true,
+  "lr": 0.001,
+  "weight_decay": 1e-5,
+  "warmup_epochs": 4,
+  "wandb_api_key": "250dbbcea2aeb58b6f317f9d7505802657d9a207",
+  "run_name": "BYOL | Global2Global | PointNet | ShapeNet"
+}

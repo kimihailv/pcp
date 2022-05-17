@@ -1,0 +1,50 @@
+{
+  "save_dir": "pcp/weights",
+  "save_every": 25,
+  "validate_every": 1000,
+  "eval_clf_every": 1,
+  "eval_clf_kwargs": {
+    "device": "cuda:0",
+    "dataset_type": "modelnet",
+    "dataset_path": "datasets/hdfs/modelnet2k.h5",
+    "batch_size": 16
+  },
+  "n_epochs": 100,
+  "dataset": {
+    "train": {
+      "hdf5_path": "datasets/hdfs/shapenet.h5",
+      "splits": ["train", "val", "test"],
+      "categories": ["all"],
+      "points_labels_path": "datasets/shapenet_labels_global.h5",
+      "point_labels_level": "local"
+    },
+    "val": {
+      "hdf5_path": "datasets/hdfs/shapenet.h5",
+      "splits": ["val"],
+      "categories": ["all"],
+      "points_labels_path": "datasets/shapenet_labels_global.h5",
+      "point_labels_level": "local"
+    }
+  },
+  "batch_size": {
+    "train": 7,
+    "val": 16
+  },
+  "framework": {
+    "type": "supcon",
+    "kwargs": {
+      "q_size_per_cls":  1024,
+      "n_classes": 30,
+      "negatives_per_cls": 200,
+      "temperature": 0.07,
+      "init_data_path": "datasets/shapenet_labels_global.h5"
+    }
+  },
+  "backbone_type": "clf",
+  "sync_bn": true,
+  "lr": 0.005,
+  "weight_decay": 1e-5,
+  "warmup_epochs": 10,
+  "wandb_api_key": "250dbbcea2aeb58b6f317f9d7505802657d9a207",
+  "run_name": "SupCon"
+}
